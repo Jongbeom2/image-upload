@@ -67,6 +67,6 @@ const resizeImage = async ({ bucket, file, width, height }) => {
     .scaleToFit(width, height)
     .getBufferAsync(mime);
   const newFileName = file;
-  await S3.write(resizedImageBuffer, newFileName, bucket, "public-read", mime);
+  await S3.write(resizedImageBuffer, newFileName, bucket, undefined, mime);
   return newFileName;
 };
